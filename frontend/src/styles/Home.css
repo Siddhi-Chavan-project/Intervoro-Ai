@@ -1,0 +1,721 @@
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero {
+    width: 100%;
+    min-height: 85vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 8% 70px;
+    background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, .18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(124, 58, 237, .18), transparent 30%),
+        #08111f;
+}
+
+.hero-left {
+    flex: 1;
+}
+
+.hero-left h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 22px;
+    color: white;
+}
+
+.hero-left span {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-left p {
+    color: #9ca3af;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 650px;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.hero-buttons,
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.start-btn,
+.learn-btn,
+.upload-btn {
+    padding: 13px 30px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+.start-btn,
+.upload-btn {
+    border: none;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    color: white;
+}
+
+.learn-btn {
+    border: 2px solid #2563eb;
+    background: transparent;
+    color: white;
+}
+
+.start-btn:hover,
+.learn-btn:hover,
+.upload-btn:hover:not(:disabled) {
+    box-shadow: 0 8px 24px rgba(37, 99, 235, .3);
+}
+
+button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+/* ==========================================
+   SECTION HEADINGS
+========================================== */
+
+.features h2,
+.how-it-works h2,
+.categories h2,
+.dashboard-preview h2,
+.feedback-preview h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 0 0 45px;
+    color: white;
+}
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.features {
+    padding: 75px 8%;
+    background: #111827;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    width: 100%;
+    padding: 28px;
+    border-radius: 16px;
+    background: #1f2937;
+    border: 1px solid #334155;
+    text-align: left;
+    cursor: pointer;
+    color: white;
+    font: inherit;
+    transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.feature-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, .15);
+}
+
+.feature-icon {
+    font-size: 34px;
+    margin-bottom: 14px;
+}
+
+.feature-card h3 {
+    margin: 0 0 12px;
+    color: #60a5fa;
+}
+
+.feature-card p {
+    color: #9ca3af;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ==========================================
+   RESUME ANALYZER
+========================================== */
+
+.resume-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: start;
+    gap: 40px;
+    padding: 70px 6%;
+    background: #08111f;
+    scroll-margin-top: 30px;
+}
+
+.resume-left {
+    min-width: 0;
+}
+
+.resume-left h2 {
+    color: white;
+    font-size: 2.3rem;
+    margin: 0 0 16px;
+}
+
+.resume-left p {
+    color: #9ca3af;
+    line-height: 1.7;
+    margin: 0 0 20px;
+}
+
+.resume-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.resume-left li {
+    color: #e5e7eb;
+    margin: 12px 0;
+    font-size: 16px;
+}
+
+.resume-left label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.resume-role-input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 420px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border: 1px solid #334155;
+    border-radius: 9px;
+    background: #111827;
+    color: white;
+    font-size: 15px;
+}
+
+.resume-role-input:focus {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+.resume-role-input::placeholder {
+    color: #9ca3af;
+}
+
+.upload-btn {
+    display: block;
+    margin-top: 16px;
+}
+
+.resume-right {
+    min-width: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.resume-card {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 650px;
+    min-width: 0;
+    padding: 28px;
+    border-radius: 18px;
+    background: #1f2937;
+    border: 1px solid #334155;
+    text-align: center;
+    color: white;
+    overflow-wrap: anywhere;
+}
+
+.resume-card > h3 {
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    color: white;
+}
+
+.score-circle {
+    width: 125px;
+    height: 125px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.resume-card > p {
+    color: #9ca3af;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 22px;
+}
+
+.resume-results {
+    text-align: left;
+    margin-top: 20px;
+    border-top: 1px solid #374151;
+    padding-top: 18px;
+}
+
+.resume-results h3 {
+    font-size: 1.1rem;
+    color: #93c5fd;
+    margin: 22px 0 10px;
+}
+
+.resume-results h3:first-child {
+    margin-top: 0;
+}
+
+.resume-results p,
+.resume-results li {
+    color: #d1d5db;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.resume-results p {
+    margin: 0 0 12px;
+}
+
+.resume-results ul {
+    padding-left: 20px;
+    margin: 0 0 14px;
+}
+
+.resume-results li {
+    margin-bottom: 8px;
+}
+
+.resume-results li::marker {
+    color: #818cf8;
+}
+
+/* ==========================================
+   HOW IT WORKS
+========================================== */
+
+.how-it-works {
+    padding: 75px 8%;
+    background: #111827;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.step {
+    background: #1f2937;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+.step-number {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+}
+
+.step h3 {
+    margin: 0 0 10px;
+    color: white;
+}
+
+.step p {
+    margin: 0;
+    color: #9ca3af;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   INTERVIEW CATEGORIES
+========================================== */
+
+.categories {
+    padding: 75px 8%;
+    background: #08111f;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.category-card {
+    padding: 18px 12px;
+    background: #1f2937;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #334155;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .25s ease, border-color .25s ease;
+}
+
+.category-card:hover {
+    background: #25365a;
+    border-color: #6366f1;
+}
+
+/* ==========================================
+   DASHBOARD PREVIEW
+========================================== */
+
+.dashboard-preview {
+    padding: 75px 8%;
+    background: #111827;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.dashboard-card {
+    background: #1f2937;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid #334155;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    transition: border-color .25s ease;
+}
+
+.dashboard-card:hover {
+    border-color: #6366f1;
+}
+
+.dashboard-card h3 {
+    font-size: 2.2rem;
+    margin: 0 0 10px;
+    color: #60a5fa;
+}
+
+.dashboard-card p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 15px;
+}
+
+/* ==========================================
+   AI FEEDBACK PREVIEW
+========================================== */
+
+.feedback-preview {
+    padding: 75px 8%;
+    background: #08111f;
+}
+
+.feedback-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.question-box,
+.answer-box,
+.feedback-box {
+    min-width: 0;
+    box-sizing: border-box;
+    background: #1f2937;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 26px;
+}
+
+.question-box h3,
+.answer-box h3,
+.feedback-box h3 {
+    color: #60a5fa;
+    margin: 0 0 14px;
+    font-size: 1.1rem;
+}
+
+.question-box p,
+.answer-box p,
+.feedback-box p {
+    color: #9ca3af;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.score-list {
+    margin-top: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.score-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #111827;
+    padding: 12px 14px;
+    border-radius: 9px;
+    color: white;
+}
+
+.score-list span {
+    color: #60a5fa;
+    font-weight: 700;
+}
+
+/* ==========================================
+   CALL TO ACTION
+========================================== */
+
+.cta {
+    padding: 80px 8%;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, rgba(37, 99, 235, .18), transparent 60%),
+        #111827;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin: 0 0 20px;
+    color: white;
+}
+
+.cta p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.cta-buttons {
+    justify-content: center;
+}
+
+/* ==========================================
+   ACCESSIBILITY AND PAGE BEHAVIOUR
+========================================== */
+
+.feature-card:focus-visible,
+.category-card:focus-visible,
+.dashboard-card:focus-visible,
+.start-btn:focus-visible,
+.learn-btn:focus-visible,
+.upload-btn:focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 4px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* No automatic section animation: prevents the page
+   from appearing to move when results load. */
+
+.hero,
+.features,
+.resume-section,
+.how-it-works,
+.categories,
+.dashboard-preview,
+.feedback-preview,
+.cta {
+    animation: none;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+    .hero {
+        min-height: 70vh;
+        padding: 90px 6% 60px;
+    }
+
+    .hero-left h1 {
+        font-size: 3.2rem;
+    }
+
+    .feature-grid,
+    .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resume-section {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 24px;
+        padding: 60px 5%;
+    }
+
+    .resume-card {
+        padding: 22px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .feedback-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 90px 22px 60px;
+    }
+
+    .hero-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-left p {
+        font-size: 1rem;
+    }
+
+    .features,
+    .how-it-works,
+    .categories,
+    .dashboard-preview,
+    .feedback-preview,
+    .cta {
+        padding: 55px 20px;
+    }
+
+    .features h2,
+    .how-it-works h2,
+    .categories h2,
+    .dashboard-preview h2,
+    .feedback-preview h2 {
+        font-size: 1.9rem;
+        margin-bottom: 30px;
+    }
+
+    .feature-grid,
+    .steps,
+    .resume-section,
+    .dashboard-grid,
+    .feedback-container {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-section {
+        gap: 30px;
+        padding: 55px 20px;
+    }
+
+    .resume-left h2 {
+        font-size: 2rem;
+    }
+
+    .resume-card {
+        max-width: 100%;
+        padding: 22px;
+    }
+
+    .score-circle {
+        width: 110px;
+        height: 110px;
+        font-size: 30px;
+    }
+
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .dashboard-card h3 {
+        font-size: 2rem;
+    }
+
+    .cta h2 {
+        font-size: 2rem;
+    }
+
+    .cta p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-buttons button {
+        width: 220px;
+    }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+    .hero-left h1 {
+        font-size: 2.1rem;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resume-card {
+        padding: 16px;
+    }
+}
