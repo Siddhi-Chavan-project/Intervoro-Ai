@@ -145,14 +145,20 @@ function Home() {
                         to crack your dream job.
                     </p>
 
-                    <div className="hero-buttons">
-                        <button
-                            className="start-btn"
-                            onClick={() => navigate("/register")}
-                        >
-                            Get Started
-                        </button>
-                    </div>
+                   <button
+    className="start-btn"
+    onClick={() => {
+        const token = localStorage.getItem("token");
+
+        if (token) {
+            navigate("/dashboard");
+        } else {
+            navigate("/register");
+        }
+    }}
+>
+    Get Started
+</button>
                 </div>
             </section>
 
