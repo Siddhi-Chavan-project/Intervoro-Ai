@@ -1,4 +1,4 @@
-# AI Interview Bot
+# Intervoro AI
 
 An AI-powered interview preparation platform designed specifically for programmers and developers. The system conducts technical mock interviews, evaluates candidate answers using a Large Language Model (LLM), and provides scores, personalized feedback, and performance analysis.
 
