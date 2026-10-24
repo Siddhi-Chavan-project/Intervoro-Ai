@@ -4,12 +4,18 @@ import "../styles/Dashboard.css";
 
 function Dashboard() {
     const navigate = useNavigate();
-
+const user = JSON.parse(localStorage.getItem("user") || "{}");
+const userName = user.name || user.username || user.full_name || "";
     return (
         <div className="dashboard-page">
             <main className="dashboard-container">
                 <div className="dashboard-heading">
                     <h1>Welcome to Your Dashboard</h1>
+                    {userName && (
+    <h2 className="dashboard-user-name">
+        {userName}
+    </h2>
+)}
                     <p>
                         Prepare for interviews, review your performance,
                         and strengthen your technical concepts.

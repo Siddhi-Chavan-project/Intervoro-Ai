@@ -31,7 +31,13 @@
 .dashboard-page *::after {
     box-sizing: border-box;
 }
-
+.dashboard-user-name {
+    margin: 12px 0 16px;
+    color: #a78bfa;
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0 0 18px rgba(139, 92, 246, 0.25);
+}
 /* Main container */
 
 .dashboard-container {
