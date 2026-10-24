@@ -18,7 +18,7 @@ function Footer() {
 
                 <div className="footer-brand">
 
-                    <h2>AI Interview Bot</h2>
+                    <h2>Intervoro AI</h2>
 
                     <p>
 

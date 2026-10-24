@@ -130,6 +130,187 @@ function Home() {
             event.target.value = "";
         }
     };
+/*
+
+ */
+
+const bars = [38, 55, 48, 70, 86];
+
+const steps = [
+    {
+        title: "Create account",
+        desc: "Register in seconds and set up your profile.",
+        art: (
+            <div className="hiw-glass hiw-form">
+                <div className="hiw-avatar">👤</div>
+                <div className="hiw-line w70" />
+                <div className="hiw-line w50" />
+                <div className="hiw-pill">Sign up</div>
+            </div>
+        ),
+    },
+    {
+        title: "Generate questions",
+        desc: "Pick a role or category and get questions written for it.",
+        art: (
+            <div className="hiw-stack">
+                <div className="hiw-glass hiw-chip active">⚛️ React Developer</div>
+                <div className="hiw-glass hiw-chip">💻 Full Stack</div>
+                <div className="hiw-glass hiw-chip">🧠 Behavioral</div>
+            </div>
+        ),
+    },
+    {
+        title: "Answer questions",
+        desc: "Practice technical and HR questions in your own words.",
+        art: (
+            <div className="hiw-glass hiw-answer">
+                <span className="hiw-live">● Live</span>
+                <div className="hiw-q">Explain the Virtual DOM…</div>
+                <div className="hiw-wave">
+                    {[10, 22, 14, 28, 18, 30, 12, 24, 16].map((h, i) => (
+                        <i key={i} style={{ height: h }} />
+                    ))}
+                </div>
+            </div>
+        ),
+    },
+    {
+        title: "Receive feedback",
+        desc: "Get a score and clear notes on every answer.",
+        art: (
+            <div className="hiw-glass hiw-feedback">
+                <div className="hiw-ring">
+                    <b>84</b>
+                    <small>/100</small>
+                </div>
+                <ul>
+                    <li>✓ Relevance</li>
+                    <li>✓ Structure</li>
+                    <li>✓ Specificity</li>
+                </ul>
+            </div>
+        ),
+    },
+    {
+        title: "Track progress",
+        desc: "View reports and watch your scores.",
+        art: (
+            <div className="hiw-glass hiw-chart">
+                <div className="hiw-bars">
+                    {bars.map((h, i) => (
+                        <i key={i} style={{ height: `${h}%` }} />
+                    ))}
+                </div>
+                <span className="hiw-trend"></span>
+            </div>
+        ),
+    },
+    {
+    title: "Master Weak Concepts",
+    desc: "Understand missed concepts, practise targeted questions, and apply your knowledge to new scenarios.",
+    art: (
+        <div className="hiw-glass hiw-answer">
+            <span className="hiw-live">AI Practice</span>
+            <div className="hiw-q">
+                🧠 Concept Identified
+            </div>
+            <div style={{ fontSize: "13px", color: "#c4b5fd", marginBottom: "12px" }}>
+                SQL Joins
+            </div>
+            <div className="hiw-pill">
+                Practice New Scenario →
+            </div>
+        </div>
+    ),
+},
+];
+
+
+const CSS = `
+.hiw { padding: 80px 6%; background: #080f1e; color: #f8fafc; }
+.hiw-inner { max-width: 1200px; margin: 0 auto; }
+.hiw-eyebrow { margin: 0 0 12px; color: #60a5fa; font-size: 15px; font-weight: 600; }
+.hiw-title { margin: 0 0 48px; max-width: 560px; font-size: clamp(32px, 4.4vw, 52px);
+  font-weight: 500; line-height: 1.12; text-align: left; }
+ 
+.hiw-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 36px 28px; }
+.hiw-step { grid-column: span 2; }
+.hiw-step:nth-child(4) { grid-column: 2 / span 2; }
+.hiw-step:nth-child(5) { grid-column: 4 / span 2; }
+ 
+.hiw-art { position: relative; height: 230px; border-radius: 24px; overflow: hidden;
+  display: grid; place-items: center;
+  background: radial-gradient(120% 120% at 20% 0%, #2f3fa8 0%, #1c2266 42%, #0c1230 100%);
+  border: 1px solid #263b54; box-shadow: 0 24px 40px -24px rgba(0,0,0,.8); }
+.hiw-art::before { content: ""; position: absolute; width: 220px; height: 220px; right: -60px;
+  bottom: -90px; border-radius: 50%; background: rgba(128,56,236,.40); filter: blur(50px); }
+ 
+.hiw-head { display: flex; align-items: center; gap: 12px; margin: 22px 0 8px; }
+.hiw-num { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid;
+  place-items: center; background: linear-gradient(135deg, #315efb, #8038ec); color: #ffffff; font-size: 14px; font-weight: 700; }
+.hiw-head h3 { margin: 0; font-size: 21px; font-weight: 500; text-align: left; }
+.hiw-desc { margin: 0; color: #a8b6cc; font-size: 15px; line-height: 1.65; text-align: left; }
+ 
+/* glass mock UI */
+.hiw-glass { position: relative; z-index: 1; border-radius: 16px; padding: 14px 16px;
+  background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(8px); color: #fff; font-size: 14px; }
+.hiw-line { height: 8px; border-radius: 6px; background: rgba(255,255,255,.28); margin: 8px 0; }
+.w70 { width: 70%; } .w50 { width: 50%; }
+ 
+.hiw-form { width: 190px; text-align: center; }
+.hiw-form .hiw-line { margin-left: auto; margin-right: auto; }
+.hiw-avatar { width: 44px; height: 44px; margin: 0 auto 6px; border-radius: 50%;
+  display: grid; place-items: center; background: linear-gradient(135deg, #315efb, #8038ec); font-size: 20px; }
+.hiw-pill { margin-top: 12px; padding: 7px; border-radius: 999px; background: linear-gradient(110deg, #315efb, #8038ec);
+  color: #ffffff; font-weight: 700; font-size: 13px; }
+ 
+.hiw-stack { position: relative; z-index: 1; display: grid; gap: 10px; width: 220px; }
+.hiw-chip { padding: 12px 16px; font-weight: 600; }
+.hiw-chip.active { background: rgba(128,56,236,.35); border-color: #a78bfa; }
+ 
+.hiw-answer { width: 230px; }
+.hiw-live { display: inline-block; margin-bottom: 8px; padding: 2px 8px; border-radius: 999px;
+  background: #16a34a; font-size: 11px; font-weight: 700; }
+.hiw-q { font-weight: 600; margin-bottom: 12px; }
+.hiw-wave { display: flex; align-items: center; gap: 5px; height: 34px; }
+.hiw-wave i { width: 5px; border-radius: 4px; background: #a78bfa; }
+ 
+.hiw-feedback { display: flex; align-items: center; gap: 18px; }
+.hiw-ring { width: 82px; height: 82px; border-radius: 50%; display: grid;
+  place-content: center; text-align: center;
+  background: radial-gradient(#0f1840 58%, transparent 60%),
+              conic-gradient(#22c55e 84%, rgba(255,255,255,.15) 0); }
+.hiw-ring b { font-size: 24px; line-height: 1; }
+.hiw-ring small { font-size: 10px; color: #b8c2d8; }
+.hiw-feedback ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px;
+  font-weight: 600; font-size: 13px; text-align: left; }
+.hiw-feedback li { color: #86efac; }
+ 
+.hiw-chart { width: 230px; }
+.hiw-bars { display: flex; align-items: flex-end; gap: 10px; height: 84px; }
+.hiw-bars i { flex: 1; border-radius: 6px 6px 2px 2px;
+  background: linear-gradient(#60a5fa, #8038ec); }
+.hiw-trend { display: block; margin-top: 10px; color: #86efac; font-weight: 600; font-size: 13px; }
+ 
+.hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 36px 28px;
+}
+
+.hiw-step,
+.hiw-step:nth-child(4),
+.hiw-step:nth-child(5) {
+    grid-column: auto;
+}
+@media (max-width: 620px) {
+  .hiw { padding: 56px 20px; }
+  .hiw-grid { grid-template-columns: 1fr; }
+}
+`;
+
 
     return (
         <>
@@ -317,25 +498,31 @@ function Home() {
                 </div>
             </section>
 
-            <section className="how-it-works" id="how-it-works">
-                <h2>How It Works</h2>
+            <section className="hiw" id="how-it-works">
+            <style>{CSS}</style>
 
-                <div className="steps">
-                    {[
-                        ["Create Account", "Register and create your account."],
-                        ["Generate Questions", "Generate questions based on your role."],
-                        ["Answer Questions", "Practice technical and HR questions."],
-                        ["Receive Feedback", "Get feedback on your answers."],
-                        ["Track Progress", "View reports and improve continuously."],
-                    ].map(([title, desc], index) => (
-                        <div className="step" key={title}>
-                            <div className="step-number">{index + 1}</div>
-                            <h3>{title}</h3>
-                            <p>{desc}</p>
-                        </div>
+            <div className="hiw-inner">
+                <p className="hiw-eyebrow">How it works</p>
+                <h2 className="hiw-title">How an AI mock interview works</h2>
+
+                <div className="hiw-grid">
+                    {steps.map((step, index) => (
+                        <article className="hiw-step" key={step.title}>
+                            <div className="hiw-art">{step.art}</div>
+
+                            <div className="hiw-head">
+                                <span className="hiw-num">{index + 1}</span>
+                                <h3>{step.title}</h3>
+                            </div>
+
+                            <p className="hiw-desc">{step.desc}</p>
+                        </article>
                     ))}
                 </div>
-            </section>
+            </div>
+        </section>
+
+
 
             <section className="categories" id="categories">
                 <h2>Interview Categories</h2>
@@ -358,8 +545,7 @@ function Home() {
                     ))}
                 </div>
             </section>
-
-            <section className="dashboard-preview" id="dashboard-preview">
+ <section className="dashboard-preview" id="dashboard-preview">
                 <h2>Progress Dashboard Preview</h2>
 
                 <div className="dashboard-grid">
@@ -420,5 +606,5 @@ function Home() {
         </>
     );
 }
-
+   
 export default Home;

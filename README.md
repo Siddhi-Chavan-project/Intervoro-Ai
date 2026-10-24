@@ -21,7 +21,6 @@ This project aims to provide an automated technical interview practice system th
 ## Target Users
 
 - Computer Science students
-- MCA students
 - Programmers
 - Software Developers
 - Technical job candidates
