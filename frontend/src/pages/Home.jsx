@@ -23,25 +23,34 @@ function Home() {
             icon: "📄",
             title: "Resume Analyzer",
             desc: "Analyze your resume with ATS scoring and recommendations.",
-           
+            action: () =>
+                document.getElementById("resume-analyzer")?.scrollIntoView({
+                    behavior: "smooth",
+                }),
         },
         {
             icon: "📊",
             title: "Performance Dashboard",
             desc: "Track your interview scores and improvements.",
-          
+            action: () => navigate("/dashboard"),
         },
         {
             icon: "🎤",
             title: "Interview Categories",
             desc: "Explore interview topics and categories.",
-       
+            action: () =>
+                document.getElementById("categories")?.scrollIntoView({
+                    behavior: "smooth",
+                }),
         },
         {
             icon: "🧠",
             title: "AI Feedback",
             desc: "Receive technical and communication feedback.",
-           
+            action: () =>
+                document.getElementById("feedback")?.scrollIntoView({
+                    behavior: "smooth",
+                }),
         },
         {
             icon: "📈",
@@ -52,10 +61,10 @@ function Home() {
     ];
 
     const categories = [
-     "Frontend", "Backend", "Full Stack", "Java", "Python", "C++",
-"React", "Node.js", "MongoDB", "SQL", "React", "C",
-"DevOps", "Cloud", "Machine Learning", "Data Science",
-"Cyber Security", "UI/UX", "JavaScript", "PHP",
+        "Frontend", "Backend", "Full Stack", "Java", "Python", "C++",
+        "React", "Node.js", "MongoDB", "SQL", "HR", "Behavioral",
+        "DevOps", "Cloud", "Machine Learning", "Data Science",
+        "Cyber Security", "UI/UX",
     ];
 
     const handleResumeSelection = async (event) => {
@@ -536,66 +545,180 @@ const CSS = `
                     ))}
                 </div>
             </section>
- <section className="dashboard-preview" id="dashboard-preview">
-                <h2>Progress Dashboard Preview</h2>
 
-                <div className="dashboard-grid">
-                    {[
-                        ["15", "Interviews Completed"],
-                        ["89%", "Average Score"],
-                        ["12", "Current Streak"],
-                        ["Sample", "Resume Score"],
-                        ["React", "Best Skill"],
-                        ["SQL", "Needs Improvement"],
-                    ].map(([value, label]) => (
-                        <button
-                            type="button"
-                            className="dashboard-card"
-                            key={label}
-                            onClick={() => navigate("/dashboard")}
-                        >
-                            <h3>{value}</h3>
-                            <p>{label}</p>
-                        </button>
-                    ))}
-                </div>
-            </section>
+<section className="report-preview" id="report-preview">
+    <div className="report-preview-header">
+        <span className="report-eyebrow">YOUR PERFORMANCE, ANALYZED</span>
+        <h2>AI Interview Report & Result</h2>
+        <p>
+            Get a detailed breakdown of your interview performance,
+            understand your strengths and weaknesses, and discover
+            exactly what to improve next.
+        </p>
+    </div>
 
-            <section className="feedback-preview" id="feedback">
-                <h2>AI Feedback Preview</h2>
+    <div className="report-preview-card">
+        {/* Report header */}
+        <div className="report-topbar">
+            <div>
+                <span className="report-label">INTERVORO AI</span>
+                <h3>Interview Performance Report</h3>
+                <p>Full Stack Developer · Sample Report</p>
+            </div>
+            
+        </div>
 
-                <div className="feedback-container">
-                    <div className="question-box">
-                        <h3>Interview Question</h3>
-                        <p>Explain the Virtual DOM in React.</p>
-                    </div>
-
-                    <div className="answer-box">
-                        <h3>Your Answer</h3>
-                        <p>
-                            Virtual DOM is a lightweight copy of the real DOM
-                            that React uses to efficiently update changed elements.
-                        </p>
-                    </div>
-
-                    <div className="feedback-box">
-                        <h3>Sample AI Feedback</h3>
-                        <p>
-                            Excellent explanation. Try adding examples for
-                            better clarity.
-                        </p>
-
-                        <div className="score-list">
-                            <div>Technical <span>92%</span></div>
-                            <div>Communication <span>88%</span></div>
-                            <div>Confidence <span>90%</span></div>
-                            <div>Overall <span>90%</span></div>
-                        </div>
+        {/* Overall result */}
+        <div className="report-overview">
+            <div className="report-score-panel">
+                <span className="report-label">OVERALL SCORE</span>
+                <div className="report-score-ring">
+                    <div>
+                        <strong>8.4</strong>
+                        <span>/ 10</span>
                     </div>
                 </div>
-            </section>
+                <span className="report-grade">Grade A</span>
+                <p>Strong performance</p>
+            </div>
+
+            <div className="report-metrics">
+                <div className="report-metric">
+                    <span className="metric-icon">📋</span>
+                    <div>
+                        <strong>5</strong>
+                        <span>Questions Evaluated</span>
+                    </div>
+                </div>
+
+                <div className="report-metric">
+                    <span className="metric-icon">✓</span>
+                    <div>
+                        <strong>4</strong>
+                        <span>Strong Answers</span>
+                    </div>
+                </div>
+
+                <div className="report-metric">
+                    <span className="metric-icon">🧠</span>
+                    <div>
+                        <strong>2</strong>
+                        <span>Areas to Improve</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {/* Question-wise scores */}
+        <div className="report-section">
+            <div className="report-section-heading">
+                <div>
+                    <span className="report-label">ANSWER ANALYSIS</span>
+                    <h4>Question-wise Performance</h4>
+                </div>
+                <span className="report-mini-badge">5 Questions</span>
+            </div>
+
+            <div className="report-question">
+                <div className="report-question-info">
+                    <span className="report-q-number">01</span>
+                    <div>
+                        <strong>Explain the Virtual DOM in React.</strong>
+                        <span>Technical correctness · Relevance</span>
+                    </div>
+                </div>
+                <div className="report-question-score">
+                    <strong>9.2</strong>
+                    <span>/10</span>
+                </div>
+                <div className="report-progress">
+                    <span style={{ width: "92%" }} />
+                </div>
+            </div>
+
+            <div className="report-question">
+                <div className="report-question-info">
+                    <span className="report-q-number">02</span>
+                    <div>
+                        <strong>How do SQL joins work?</strong>
+                        <span>Completeness · Conceptual understanding</span>
+                    </div>
+                </div>
+                <div className="report-question-score">
+                    <strong>6.5</strong>
+                    <span>/10</span>
+                </div>
+                <div className="report-progress">
+                    <span style={{ width: "65%" }} />
+                </div>
+            </div>
+
+            <div className="report-question">
+                <div className="report-question-info">
+                    <span className="report-q-number">03</span>
+                    <div>
+                        <strong>Explain REST API principles.</strong>
+                        <span>Accuracy · Answer structure</span>
+                    </div>
+                </div>
+                <div className="report-question-score">
+                    <strong>8.8</strong>
+                    <span>/10</span>
+                </div>
+                <div className="report-progress">
+                    <span style={{ width: "88%" }} />
+                </div>
+            </div>
+        </div>
+
+        {/* AI feedback */}
+        <div className="report-insights">
+            <div className="report-insight report-strength">
+                <span className="insight-icon">↗</span>
+                <div>
+                    <h4>Strengths</h4>
+                    <p>
+                        Good technical explanations, relevant examples,
+                        and clear understanding of React concepts.
+                    </p>
+                </div>
+            </div>
+
+            <div className="report-insight report-weakness">
+                <span className="insight-icon">◎</span>
+                <div>
+                    <h4>Areas to Improve</h4>
+                    <p>
+                        Strengthen SQL join concepts and include
+                        more detailed examples in technical answers.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        {/* Personalized recommendation */}
+        <div className="report-recommendation">
+            <div className="recommendation-icon">✦</div>
+            <div>
+                <span className="report-label">PERSONALIZED NEXT STEP</span>
+                <h4>Master Your Weak Concepts</h4>
+                <p>
+                    Review the missing concepts, practise targeted
+                    questions, and test your understanding with new scenarios.
+                </p>
+            </div>
+        </div>
+
+        <div className="report-footer">
+            <span>✦ AI-generated evaluation and personalized feedback</span>
+            <span className="report-footer-tag">SAMPLE PREVIEW</span>
+        </div>
+    </div>
+</section>
+
+
         </>
     );
 }
-   
+
 export default Home;
