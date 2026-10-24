@@ -53,6 +53,37 @@ function Result() {
         ? result.answers
         : [];
 
+    // Remove duplicate answers using question_number.
+    // Keep the latest occurrence if a question was submitted more than once.
+    const uniqueAnswers = [
+        ...new Map(
+            answers.map((item, index) => [
+                item.question_number != null
+                    ? String(item.question_number)
+                    : `question-${index}`,
+                item,
+            ])
+        ).values(),
+    ];
+
+    // Remove duplicate strengths (case-insensitive)
+    const uniqueStrengths = [
+        ...new Map(
+            (Array.isArray(result.strengths) ? result.strengths : [])
+                .filter((item) => typeof item === "string" && item.trim())
+                .map((item) => [item.trim().toLowerCase(), item.trim()])
+        ).values(),
+    ];
+
+    // Remove duplicate weaknesses (case-insensitive)
+    const uniqueWeaknesses = [
+        ...new Map(
+            (Array.isArray(result.weaknesses) ? result.weaknesses : [])
+                .filter((item) => typeof item === "string" && item.trim())
+                .map((item) => [item.trim().toLowerCase(), item.trim()])
+        ).values(),
+    ];
+
     const averageScore = Math.max(
         0,
         Math.min(10, Number(result.average_score) || 0)
@@ -60,22 +91,15 @@ function Result() {
 
     const performance = Math.round(averageScore * 10);
 
-    const totalQuestions = Number.isFinite(
-        Number(result.total_questions)
-    )
-        ? Number(result.total_questions)
-        : answers.length;
+    // Display the number of unique questions actually returned.
+    const totalQuestions = uniqueAnswers.length;
 
-    const totalScore = Number.isFinite(
-        Number(result.total_score)
-    )
-        ? Number(result.total_score)
-        : answers.reduce(
-            (sum, item) => sum + (Number(item.score) || 0),
-            0
-        );
+    const totalScore = uniqueAnswers.reduce(
+        (sum, item) => sum + (Number(item.score) || 0),
+        0
+    );
 
-    const scores = answers.map((item) =>
+    const scores = uniqueAnswers.map((item) =>
         Math.max(
             0,
             Math.min(10, Number(item.score) || 0)
@@ -163,7 +187,9 @@ function Result() {
                             </p>
                         </div>
 
-                        <span className={`performance-status ${getScoreClass(averageScore)}`}>
+                        <span
+                            className={`performance-status ${getScoreClass(averageScore)}`}
+                        >
                             {performanceLabel}
                         </span>
                     </div>
@@ -244,7 +270,7 @@ function Result() {
                     <div className="result-stat-card">
                         <span className="stat-icon">✓</span>
                         <p>Answers Reviewed</p>
-                        <h3>{answers.length}</h3>
+                        <h3>{uniqueAnswers.length}</h3>
                         <span className="stat-caption">
                             Evaluated by AI
                         </span>
@@ -278,9 +304,8 @@ function Result() {
                     <div className="feedback-card">
                         <h3>💪 Strengths</h3>
 
-                        {Array.isArray(result.strengths) &&
-                        result.strengths.length > 0 ? (
-                            result.strengths.map((item, index) => (
+                        {uniqueStrengths.length > 0 ? (
+                            uniqueStrengths.map((item, index) => (
                                 <p key={index}>{item}</p>
                             ))
                         ) : (
@@ -295,9 +320,8 @@ function Result() {
                     <div className="feedback-card">
                         <h3>📈 Areas to Improve</h3>
 
-                        {Array.isArray(result.weaknesses) &&
-                        result.weaknesses.length > 0 ? (
-                            result.weaknesses.map((item, index) => (
+                        {uniqueWeaknesses.length > 0 ? (
+                            uniqueWeaknesses.map((item, index) => (
                                 <p key={index}>{item}</p>
                             ))
                         ) : (
@@ -313,11 +337,11 @@ function Result() {
                 {/* Question Review */}
 
                 <h2 className="review-title">
-                    Question Review
+                    Question Review ({uniqueAnswers.length} Questions)
                 </h2>
 
-                {answers.length > 0 ? (
-                    answers.map((item, index) => {
+                {uniqueAnswers.length > 0 ? (
+                    uniqueAnswers.map((item, index) => {
                         const score = Math.max(
                             0,
                             Math.min(10, Number(item.score) || 0)
@@ -326,14 +350,17 @@ function Result() {
                         return (
                             <div
                                 className="answer-card"
-                                key={`${id}-answer-${index}`}
+                                key={`${id}-answer-${item.question_number ?? index}`}
                             >
                                 <div className="answer-card-header">
                                     <h3>
-                                        Question {item.question_number ?? index + 1}
+                                        Question{" "}
+                                        {item.question_number ?? index + 1}
                                     </h3>
 
-                                    <span className={`answer-score-badge ${getScoreClass(score)}`}>
+                                    <span
+                                        className={`answer-score-badge ${getScoreClass(score)}`}
+                                    >
                                         {score}/10
                                     </span>
                                 </div>
