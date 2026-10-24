@@ -122,6 +122,39 @@ function Report() {
                     </div>
                 </section>
 
+<div className="report-card report-performance-card">
+    <h3>Performance</h3>
+
+    <div
+        className="report-donut"
+        style={{
+            "--performance": `${Math.max(
+                0,
+                Math.min(
+                    100,
+                    (Number(report.average_score) || 0) * 10
+                )
+            )}%`,
+        }}
+    >
+        <span>
+            {Math.round(
+                Math.max(
+                    0,
+                    Math.min(
+                        100,
+                        (Number(report.average_score) || 0) * 10
+                    )
+                )
+            )}%
+        </span>
+    </div>
+
+    <p className="report-performance-label">
+        Overall Performance
+    </p>
+</div>
+
                 <section className="report-section">
                     <h2>Your Strengths</h2>
 

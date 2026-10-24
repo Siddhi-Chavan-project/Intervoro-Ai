@@ -23,34 +23,25 @@ function Home() {
             icon: "📄",
             title: "Resume Analyzer",
             desc: "Analyze your resume with ATS scoring and recommendations.",
-            action: () =>
-                document.getElementById("resume-analyzer")?.scrollIntoView({
-                    behavior: "smooth",
-                }),
+           
         },
         {
             icon: "📊",
             title: "Performance Dashboard",
             desc: "Track your interview scores and improvements.",
-            action: () => navigate("/dashboard"),
+          
         },
         {
             icon: "🎤",
             title: "Interview Categories",
             desc: "Explore interview topics and categories.",
-            action: () =>
-                document.getElementById("categories")?.scrollIntoView({
-                    behavior: "smooth",
-                }),
+       
         },
         {
             icon: "🧠",
             title: "AI Feedback",
             desc: "Receive technical and communication feedback.",
-            action: () =>
-                document.getElementById("feedback")?.scrollIntoView({
-                    behavior: "smooth",
-                }),
+           
         },
         {
             icon: "📈",
@@ -61,10 +52,10 @@ function Home() {
     ];
 
     const categories = [
-        "Frontend", "Backend", "Full Stack", "Java", "Python", "C++",
-        "React", "Node.js", "MongoDB", "SQL", "HR", "Behavioral",
-        "DevOps", "Cloud", "Machine Learning", "Data Science",
-        "Cyber Security", "UI/UX",
+     "Frontend", "Backend", "Full Stack", "Java", "Python", "C++",
+"React", "Node.js", "MongoDB", "SQL", "React", "C",
+"DevOps", "Cloud", "Machine Learning", "Data Science",
+"Cyber Security", "UI/UX", "JavaScript", "PHP",
     ];
 
     const handleResumeSelection = async (event) => {

@@ -11,7 +11,7 @@ const About = () => {
                 <div className="about-content">
 
                     <h1>
-                        About <span>AI Interview Bot</span>
+                        About <span>Intervoro AI</span>
                     </h1>
 
                     <p>
