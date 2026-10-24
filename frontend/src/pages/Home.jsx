@@ -62,9 +62,9 @@ function Home() {
 
     const categories = [
         "Frontend", "Backend", "Full Stack", "Java", "Python", "C++",
-        "React", "Node.js", "MongoDB", "SQL", "HR", "Behavioral",
+        "React", "Node.js", "MongoDB", "SQL", "JavaScript", "Data Analyst",
         "DevOps", "Cloud", "Machine Learning", "Data Science",
-        "Cyber Security", "UI/UX",
+        "Cyber Security", "UI/UX","PHP","+Other",
     ];
 
     const handleResumeSelection = async (event) => {
