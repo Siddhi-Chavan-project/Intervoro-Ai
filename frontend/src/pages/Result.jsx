@@ -1,12 +1,13 @@
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import API from "../api/axios";
 import "../styles/Result.css";
 
 function Result() {
     const { id } = useParams();
-
+const navigate = useNavigate();
     const [result, setResult] = useState(null);
 
     useEffect(() => {
@@ -403,7 +404,12 @@ function Result() {
                     <p>
                         Keep practising to improve your interview skills
                         and technical understanding.
-                    </p>
+                    </p><button type="button"
+        className="dashboard-button"
+        onClick={() => navigate("/dashboard")}
+    >
+        ← Back to Dashboard
+    </button>
                 </div>
 
             </div>

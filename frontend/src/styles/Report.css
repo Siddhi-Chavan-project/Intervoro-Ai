@@ -874,7 +874,24 @@
         padding: 24px;
     }
 }
+.dashboard-button {
+    margin-top: 18px;
+    padding: 13px 28px;
+    border: 1px solid rgba(139, 92, 246, 0.6);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
+.dashboard-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+    background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+}
 /* Mobile */
 
 @media (max-width: 650px) {
