@@ -276,53 +276,244 @@ button:disabled {
     color: white;
 }
 
-/* ==========================================
-   FEATURES
-========================================== */
+
+
+
+/* ================================
+   FEATURES SECTION
+================================ */
 
 .features {
-    padding: 75px 8%;
-    background: #111827;
+    position: relative;
+    padding: 80px 7%;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(49, 94, 251, 0.09),
+            transparent 35%
+        ),
+        #080b18;
+    color: #ffffff;
+    overflow: hidden;
 }
+
+.features h2 {
+    text-align: center;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    margin: 0 0 14px;
+    background: linear-gradient(90deg, #ffffff, #b9c8ff, #c9a7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.features h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin: 18px auto 0;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #315efb, #8038ec);
+    box-shadow: 0 0 18px rgba(98, 80, 255, 0.55);
+}
+
+/* Feature cards grid */
 
 .feature-grid {
+    max-width: 1200px;
+    margin: 45px auto 0;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
+    gap: 22px;
 }
 
+/* Individual feature card */
+
 .feature-card {
-    width: 100%;
-    padding: 28px;
-    border-radius: 16px;
-    background: #1f2937;
-    border: 1px solid #334155;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 235px;
+    padding: 28px 24px;
     text-align: left;
+    color: #ffffff;
+    font-family: inherit;
+    background: linear-gradient(
+        145deg,
+        rgba(22, 29, 57, 0.96),
+        rgba(13, 17, 36, 0.98)
+    );
+    border: 1px solid rgba(133, 151, 255, 0.16);
+    border-radius: 20px;
     cursor: pointer;
-    color: white;
-    font: inherit;
-    transition: border-color .25s ease, box-shadow .25s ease;
+    overflow: hidden;
+    isolation: isolate;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+/* Subtle glow inside each card */
+
+.feature-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top right,
+        rgba(128, 56, 236, 0.17),
+        transparent 58%
+    );
+    opacity: 0.65;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .feature-card:hover {
-    border-color: #2563eb;
-    box-shadow: 0 8px 24px rgba(37, 99, 235, .15);
+    transform: translateY(-8px);
+    border-color: rgba(111, 119, 255, 0.75);
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(76, 91, 255, 0.13);
+    background: linear-gradient(
+        145deg,
+        rgba(29, 37, 75, 0.98),
+        rgba(17, 20, 45, 0.99)
+    );
 }
 
-.feature-icon {
-    font-size: 34px;
-    margin-bottom: 14px;
+.feature-card:hover::before {
+    opacity: 1;
 }
+
+.feature-card:focus-visible {
+    outline: 2px solid #8b7bff;
+    outline-offset: 4px;
+}
+
+/* Icon */
+
+.feature-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 22px;
+    font-size: 27px;
+    background: linear-gradient(
+        135deg,
+        rgba(49, 94, 251, 0.2),
+        rgba(128, 56, 236, 0.23)
+    );
+    border: 1px solid rgba(142, 133, 255, 0.23);
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(49, 94, 251, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.08);
+}
+
+/* Card title */
 
 .feature-card h3 {
     margin: 0 0 12px;
-    color: #60a5fa;
+    color: #f4f5ff;
+    font-size: 19px;
+    line-height: 1.4;
+    font-weight: 700;
 }
 
+/* Card description */
+
 .feature-card p {
-    color: #9ca3af;
-    line-height: 1.7;
     margin: 0;
+    color: #aab3d0;
+    font-size: 14px;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+/* Tablets and small laptops */
+
+@media (max-width: 1100px) {
+    .features {
+        padding: 70px 5%;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .feature-card {
+        min-height: 215px;
+    }
+}
+
+/* Mobile phones */
+
+@media (max-width: 600px) {
+    .features {
+        padding: 55px 20px;
+    }
+
+    .features h2 {
+        font-size: 27px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .feature-card {
+        min-height: auto;
+        padding: 23px 21px;
+        border-radius: 17px;
+    }
+
+    .feature-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 17px;
+        font-size: 24px;
+    }
+
+    .feature-card h3 {
+        font-size: 18px;
+    }
+
+    .feature-card p {
+        font-size: 13.5px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .feature-card,
+    .feature-icon,
+    .feature-card::before {
+        transition: none;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
 }
 
 /* ==========================================
@@ -344,7 +535,7 @@ button:disabled {
 }
 
 .resume-left h2 {
-    color: white;
+    color: #a18aff;
     font-size: 2.3rem;
     margin: 0 0 16px;
 }
@@ -492,6 +683,35 @@ button:disabled {
     color: #818cf8;
 }
 
+.resume-file-hint {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 13px 0 0;
+    color: #929dbb;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.pdf-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid rgba(128, 100, 255, 0.3);
+    border-radius: 6px;
+    background: rgba(128, 56, 236, 0.12);
+    color: #c9baff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+@media (max-width: 600px) {
+    .resume-file-hint {
+        align-items: flex-start;
+    }
+}
+
 /* ==========================================
    HOW IT WORKS
 ========================================== */
@@ -563,7 +783,7 @@ button:disabled {
 /* Section heading */
 
 .categories .section-heading {
-    max-width: 1050px;
+    max-width: 1150px;
     margin: 0 auto 30px;
     text-align: center;
 }

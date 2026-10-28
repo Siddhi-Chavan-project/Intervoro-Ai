@@ -57,7 +57,7 @@ function Home() {
     description:
         "Get AI-powered scores, identify mistakes, and receive actionable feedback after every mock interview.",
     button: "Start Practising",
-    image: "/images/img.jpg",
+    image: "/images/5..jpg",
     action: () =>
         navigate(localStorage.getItem("token") ? "/create-interview" : "/register"),
 },
@@ -91,29 +91,18 @@ function Home() {
     description:
         "Build a consistent practice routine with technical questions, answer evaluation, and personalized improvement guidance.",
     button: "Get Started",
-    image: "/images/img.jpg",
+    image: "/images/5..jpg",
     action: () =>
         navigate(localStorage.getItem("token") ? "/dashboard" : "/register"),
 },
-{
-    eyebrow: "RESUME READINESS",
-    title: "Make Your Resume Stand Out.",
-    description:
-        "Analyze your resume for a target role, discover missing skills, and identify areas to improve.",
-    button: "Analyze Resume",
-    image: "/images/3.jpg",
-    action: () =>
-        document.getElementById("resume-analyzer")?.scrollIntoView({
-            behavior: "smooth",
-        }),
-},
+
 {
     eyebrow: "YOUR NEXT INTERVIEW AWAITS",
     title: "Practice Today. Perform With Confidence.",
     description:
         "Prepare for technical interviews at your own pace with role-based questions and AI-generated feedback.",
     button: "Start Your Journey",
-    image: "/images/9.jpg",
+    image: "/images/5..jpg",
     action: () =>
         navigate(localStorage.getItem("token") ? "/create-interview" : "/register"),
 },
@@ -266,8 +255,7 @@ const visibleCategories = categorySearch.trim()
         ? categories
         : categories.slice(0, 15);
 
-
-    const handleResumeSelection = async (event) => {
+const handleResumeSelection = async (event) => {
         const file = event.target.files?.[0];
 
         if (!file) return;
@@ -428,7 +416,7 @@ const visibleCategories = categorySearch.trim()
 
         .hiw-eyebrow {
             margin: 0 0 12px;
-            color: #60a5fa;
+            color: #a18aff;
             font-size: 15px;
             font-weight: 600;
         }
@@ -714,7 +702,7 @@ const visibleCategories = categorySearch.trim()
                 backgroundImage: `linear-gradient(
                     90deg,
                     rgba(8, 11, 24, 0.97) 0%,
-                    rgba(8, 11, 24, 0.82) 48%,
+                    rgba(8, 11, 24, 0.44) 48%,
                     rgba(8, 11, 24, 0.2) 100%
                 ), url("${slide.image}")`,
             }}
@@ -805,8 +793,7 @@ const visibleCategories = categorySearch.trim()
                     ))}
                 </div>
             </section>
-
-            <section className="resume-section" id="resume-analyzer">
+  <section className="resume-section" id="resume-analyzer">
                 <div className="resume-left">
                     <h2>AI Resume Analyzer</h2>
 
@@ -855,6 +842,11 @@ const visibleCategories = categorySearch.trim()
                             ? "Analyzing Resume..."
                             : "Upload Resume"}
                     </button>
+<div><p className="resume-file-hint">
+    <span className="pdf-badge">Supported formats : PDF / DOC / DOCX · Max size: 5 MB</span>
+
+</p>
+</div>
 
                     {loadingResume && (
                         <p role="status">
@@ -940,6 +932,9 @@ const visibleCategories = categorySearch.trim()
                     </div>
                 </div>
             </section>
+
+
+
 
             <section className="hiw" id="how-it-works">
                 <style>{CSS}</style>
