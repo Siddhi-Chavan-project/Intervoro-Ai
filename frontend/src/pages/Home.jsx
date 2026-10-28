@@ -257,7 +257,7 @@ const visibleCategories = categorySearch.trim()
 
 const handleResumeSelection = async (event) => {
         const file = event.target.files?.[0];
-
+console.log("Resume upload function started");
         if (!file) return;
 
         setResumeError("");
