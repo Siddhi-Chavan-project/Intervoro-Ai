@@ -966,7 +966,7 @@ const handleResumeSelection = async (event) => {
 <section className="categories reveal-on-scroll" id="categories">
     <div className="section-heading">
         <span className="section-eyebrow">
-            FIND YOUR PROGRAMMING LANGUAGE
+            MASTER YOUR TECH LANGUAGE
         </span>
         <h2>
             Explore Interview <span>Categories</span>

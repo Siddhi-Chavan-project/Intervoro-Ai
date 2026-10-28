@@ -6,6 +6,15 @@ import {
     FaFacebookF,
     FaEnvelope
 } from "react-icons/fa";
+const handleDashboardClick = () => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+        navigate("/dashboard");
+    } else {
+        navigate("/register");
+    }
+};
 function Footer() {
 
     return (
@@ -42,7 +51,7 @@ function Footer() {
 
                     <Link to="/login">Login</Link>
 
-                    <a href="#features">Features</a>
+                    
 
                 </div>
 
@@ -50,15 +59,15 @@ function Footer() {
 
                 <div className="footer-column">
 
-                    <h3>Features</h3>
+                   <h3>Features</h3>
 
-                    <a href="#">AI Interviews</a>
+<a href="/create-interview">AI Interviews</a>
 
-                    <a href="#">Resume Analyzer</a>
+<a href="/#resume-analyzer">Resume Analyzer</a>
 
-                    <a href="#">Performance Dashboard</a>
 
-                    <a href="#">AI Feedback</a>
+
+<a href="/#report-preview">AI Feedback</a>
 
                 </div>
 
@@ -108,7 +117,7 @@ function Footer() {
     {/* Instagram */}
 
     <a
-        href="https://instagram.com/aiinterviewbot"
+        href="https://instagram.com/"
         target="_blank"
         rel="noopener noreferrer"
     >
@@ -118,7 +127,7 @@ function Footer() {
     {/* Facebook */}
 
     <a
-        href="https://facebook.com/aiinterviewbot"
+        href="https://facebook.com/"
         target="_blank"
         rel="noopener noreferrer"
     >
