@@ -165,6 +165,29 @@ useEffect(() => {
     ];
 
   
+const [typedText, setTypedText] = useState("");
+
+useEffect(() => {
+    const text = heroSlides[activeSlide].title;
+    let index = 0;
+    let timeoutId;
+
+    setTypedText("");
+
+    const typeNextCharacter = () => {
+        index += 1;
+        setTypedText(text.slice(0, index));
+
+        if (index < text.length) {
+            timeoutId = setTimeout(typeNextCharacter, 45);
+        }
+    };
+
+    timeoutId = setTimeout(typeNextCharacter, 200);
+
+    return () => clearTimeout(timeoutId);
+}, [activeSlide]);
+
 const [categorySearch, setCategorySearch] = useState("");
 const [showAllCategories, setShowAllCategories] = useState(false);
 
@@ -724,7 +747,16 @@ useEffect(() => {
                     ✦ {slide.eyebrow}
                 </span>
 
-                <h1>{slide.title}</h1>
+             
+<h1 className="hero-typing-heading">
+    {activeSlide === index ? typedText : slide.title}
+    {activeSlide === index && (
+        <span className="typing-cursor" aria-hidden="true">
+            |
+        </span>
+    )}
+</h1>
+
 
                 <p>{slide.description}</p>
 

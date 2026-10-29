@@ -27,6 +27,39 @@
     color: white;
 }
 
+/* Hero heading typing animation */
+.hero-typing-heading {
+    min-height: 2.4em;
+    overflow-wrap: break-word;
+}
+
+/* Blinking typing cursor */
+.typing-cursor {
+    display: inline-block;
+    margin-left: 3px;
+    color: #a78bfa;
+    font-weight: 400;
+    animation: typingBlink 0.75s steps(1) infinite;
+}
+
+@keyframes typingBlink {
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .typing-cursor {
+        animation: none;
+    }
+}
+
 .hero-left span {
     background: linear-gradient(90deg, #3b82f6, #8b5cf6);
     -webkit-background-clip: text;
