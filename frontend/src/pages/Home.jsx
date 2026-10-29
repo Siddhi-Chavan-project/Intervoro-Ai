@@ -401,7 +401,18 @@ console.log("Resume upload function started");
             ),
         },
     ];
+const [showBackToTop, setShowBackToTop] = useState(false);
 
+useEffect(() => {
+    const handleScroll = () => {
+        setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+}, []);
     const CSS = `
         .hiw {
             padding: 80px 6%;
@@ -1359,6 +1370,17 @@ console.log("Resume upload function started");
                         </span>
                     </div>
                 </div>
+                {showBackToTop && (
+    <button
+        type="button"
+        className="back-to-top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to top"
+        title="Back to top"
+    >
+        ↑
+    </button>
+)}
             </section>
         </>
     );
