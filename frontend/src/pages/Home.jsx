@@ -813,7 +813,7 @@ useEffect(() => {
 </section>
 
             <section className="features" id="features">
-                <h2>Why Choose AI Interview Bot?</h2>
+                <h2>Why Choose Intervoro AI ?</h2>
 
                 <div className="feature-grid">
                     {features.map((feature) => (
