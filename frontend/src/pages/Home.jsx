@@ -843,7 +843,7 @@ useEffect(() => {
                 </div>
             </section>
 
-            {/*============== {RESUME }============== */}
+            {/*============== {RESUME =============================} */}
   <section className="resume-section" id="resume-analyzer">
                 <div className="resume-left">
                     <h2>AI Resume Analyzer</h2>
