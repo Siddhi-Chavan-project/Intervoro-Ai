@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-      baseURL:"https://intervoro-ai-backend-vh30.onrender.com/api",
+      baseURL:"https://intervoroai.onrender.com/api",
 });
 
 API.interceptors.request.use((config) => {
